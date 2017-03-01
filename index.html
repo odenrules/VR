@@ -21,12 +21,13 @@
   //function UserAction() {
     alert("sigh");
     var url = "https://restcountries.eu/rest/v2/name/Sweden?fullText=true";
+    alert(url);
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", url, false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
     var result = JSON.parse(xhttp.responseText);
-    response.write (result);
+    alert(result);
     document.getElementById("successAndErrorMessages").value=result;
   //}
 </script>
