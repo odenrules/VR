@@ -16,18 +16,19 @@
 
   <button type="submit" onclick="UserAction()">Search</button>
 <div id="successAndErrorMessages">
+  
 <script>
-  function UserAction() {
-    //alert("sigh");
+  //function UserAction() {
+    alert("sigh");
     var url = "https://restcountries.eu/rest/v2/name/Sweden?fullText=true";
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", url, false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
     var result = JSON.parse(xhttp.responseText);
-    //response.write (result);
+    response.write (result);
     document.getElementById("successAndErrorMessages").value=result;
-  }
+  //}
 </script>
 
   </body>
