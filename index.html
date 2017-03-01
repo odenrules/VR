@@ -20,21 +20,12 @@
   function UserAction() {
 alert("sigh");
     var url = "https://restcountries.eu/rest/v2/name/Sweden?fullText=true";
-var representationOfDesiredState = "The cheese is old and moldy, where is the bathroom?";
- 
-var client = new XMLHttpRequest();
-
-client.open("PUT", url, false);
-
-client.setRequestHeader("Content-Type", "text/plain");
-
-client.send(representationOfDesiredState);
-
-if (client.status == 200)
-    alert("The request succeeded!\n\nThe response representation was:\n\n" + client.responseText)
-else
-    alert("The request did not succeed!\n\nThe response status was: " + client.status + " " + client.statusText + ".");
-  }
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", url, false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+    var result = JSON.parse(xhttp.responseText);
+    response.write (result);
 </script>
 
   </body>
