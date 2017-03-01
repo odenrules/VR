@@ -23,7 +23,7 @@
     var url = "https://restcountries.eu/rest/v2/name/Sweden?fullText=true";
     alert(url);
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", url, false);
+    xhttp.open("POST", url, true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
     var result = JSON.parse(xhttp.responseText);
