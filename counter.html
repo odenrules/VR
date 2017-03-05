@@ -5,8 +5,37 @@
     <meta property="og:image" content="https://raw.githubusercontent.com/ngokevin/kframe/master/components/redux/examples/counter/preview.gif"></meta>
     <script src="https://aframe.io/releases/0.3.1/aframe.min.js"></script>
     <script src="https://ngokevin.github.io/kframe/components/event-set/examples/build.js"></script>
-    <script src="https://ngokevin.github.io/kframe/components/redux/examples/counter/reducers.js"></script>
+ 
     <script>
+ AFRAME.registerReducer('counter', {
+  actions: {
+    DECREASE: 'COUNTER__DECREASE',
+    INCREASE: 'COUNTER__INCREASE'
+  },
+
+  initialState: {
+    number: 0
+  },
+
+  reducer: function (state, action) {
+    state = state || this.initialState;
+    switch (action.type) {
+      case this.actions.DECREASE: {
+        var newState = Object.assign({}, state);
+        newState.number--;
+        return newState;
+      }
+      case this.actions.INCREASE: {
+        var newState = Object.assign({}, state);
+        newState.number++;
+        return newState;
+      }
+      default: {
+        return state;
+      }
+    }
+  }
+});
       AFRAME.registerComponent('increase-counter', {
         tick: function () {
           this.el.sceneEl.systems.redux.store.dispatch({
